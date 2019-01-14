@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "app/blocks/head.html" %}
+</head><!--/head-->
+
+<body>
+	{% include 'app/blocks/header.html' %}
+	
+	{% include 'app/blocks/message_flash.html' %}
+	<section id="form"><!--form-->
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-1">
+					<div class="login-form"><!--login form-->
+						<h2>Đăng nhập về hệ thống</h2>
+						
+						<form action="{% url 'login' %}" method="post">
+								{% csrf_token %}
+							<input type="text" name="username" placeholder="Username" />
+							<input type="password" name="password" placeholder="Password" />
+							<button type="submit" name="login" class="btn btn-default">Login</button>
+						</form>
+					</div><!--/login form-->
+				</div>
+				<div class="col-sm-1">
+					<h2 class="or">OR</h2>
+				</div>
+				<div class="col-sm-4">
+					<div class="signup-form"><!--sign up form-->
+						<h2>Tạo tài khoản mới!</h2>
+						<form action="{% url 'register' %}" method="post">
+								{% csrf_token %}
+							<input type="text" name="r_user" placeholder="Username"/>
+							<input type="email" name="r_email" placeholder="Email Address"/>
+							<input type="password" name="r_pass" placeholder="Password"/>
+							<button type="submit" name="register" class="btn btn-default">Signup</button>
+						</form> 
+					</div><!--/sign up form-->
+				</div>
+			</div>
+		</div>
+	</section><!--/form-->
+	
+	
+	{% include "app/blocks/footer.html" %}
+	
+	{% include "app/blocks/js.html" %}
+</body>
+</html>

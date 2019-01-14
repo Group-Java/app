@@ -1,0 +1,283 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "app/blocks/head.html" %}
+</head><!--/head-->
+
+<body>
+	
+	{% include 'app/blocks/header.html' %}
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+					
+						{% include "app/blocks/dongsanpham.html" %}
+
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="product-details"><!--product-details-->
+						<div class="col-sm-5">
+							<div class="view-product">
+								<img src="/media/{{ sanpham.anhdaidien }}" alt="" />
+								<h3>ZOOM</h3>
+							</div>
+
+						</div>
+						<div class="col-sm-7">
+							<div class="product-information"><!--/product-information-->
+								<img src="images/product-details/new.jpg" class="newarrival" alt="" />
+								<h2>{{ sanpham.ma_sp_id.tensp }}</h2>
+								<p>Web ID: {{ sanpham.id }}</p>
+								
+								<span>
+									<span>{{ sanpham.giasanpham| floatformat:"-3"|add:" VND"|intcomma }}</span>
+									
+									<a href="/add/{{ sanpham.id }}" class="btn btn-fefault cart">
+										<i class="fa fa-shopping-cart"></i>
+										Thêm vào giỏ hàng
+									</a>
+								</span>
+								<p><b>Màu sắc:</b> {{ sanpham.ma_tuy_chon_id.mausac }}</p>
+								<p><b>Bộ nhớ trong:</b> {{ sanpham.ma_tuy_chon_id.bonhotrong }}</p>
+								<p><b>Số lượng:</b> {{ sanpham.soluong }}</p>
+							</div><!--/product-information-->
+						</div>
+					</div><!--/product-details-->
+					
+					<div class="category-tab shop-details-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li><a href="#ketnoi" data-toggle="tab">Kết nối</a></li>
+								<li><a href="#thongso" data-toggle="tab">Thông số cứng</a></li>
+								<li class="active"><a href="#camera" data-toggle="tab">Thông số camera</a></li>
+							</ul>
+						</div>
+						<div class="tab-content">
+							
+							<div class="tab-pane fade" id="ketnoi" >
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Wlan:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.ketnoi_id.wlan }}</b></div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Bluetooth:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.ketnoi_id.bluetooth }}</b></div>
+								</div>
+										
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>GPS:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.ketnoi_id.gps }}</b></div>
+								</div>
+							</div>
+							
+							<div class="tab-pane fade" id="thongso" >
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Kích thước màn:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.kichthuocman }}</b></div>
+								</div>
+										
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Thông số màn:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.thongsoman}}</b></div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Pin:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.pin }}</b></div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Kích thước:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.kichthuoc }}</b></div>
+								</div>
+										
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Khối lượng:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.khoiluong }}</b></div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Thời điểm ra mắt:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.thoidiemramat }}</b></div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Chipset:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.chipset }}</b></div>
+								</div>
+										
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>CPU:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.tscpu }}</b></div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Bộ nhớ ram</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.bonhoram }}</b></div>
+								</div>
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Hệ điều hành:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.hedieuhanh }}</b></div>
+								</div>
+										
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Bảo mật vân tay:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.baomatvantay }}</b></div>
+								</div>
+
+
+								<div class="row">
+									<div class="col-md-2 col-sm-2"></div>
+									<div class="col-md-3 col-sm-3 col-xs-12"><b>Chống nước:</b></div>
+									<div class="col-md-1 col-sm-1"></div>
+									<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.chongnuoc }}</b></div>
+								</div>
+							</div>
+							
+							<div class="tab-pane fade active in" id="camera" >
+								
+									<h2 >Camera trước</h2>
+									<div class="row">
+										<div class="col-md-2 col-sm-2"></div>
+										<div class="col-md-3 col-sm-3 col-xs-12"><b>Thông số camera:</b></div>
+										<div class="col-md-1 col-sm-1"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.macameratruoc_id.thongsocoban }}</b></div>
+									</div>
+											
+									<div class="row">
+										<div class="col-md-2 col-sm-2"></div>
+										<div class="col-md-3 col-sm-3 col-xs-12"><b>Điểm mạnh:</b></div>
+										<div class="col-md-1 col-sm-1"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.macameratruoc_id.diemmanh }}</b></div>
+									</div>
+	
+	
+									<div class="row">
+										<div class="col-md-2 col-sm-2"></div>
+										<div class="col-md-3 col-sm-3 col-xs-12"><b>Đặc điểm:</b></div>
+										<div class="col-md-1 col-sm-1"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.macameratruoc_id.dacdiem }}</b></div>
+									</div>
+
+									<br />
+									<h2>Camera Sau</h2>
+									<div class="row">
+										<div class="col-md-2 col-sm-2"></div>
+										<div class="col-md-3 col-sm-3 col-xs-12"><b>Thông số camera:</b></div>
+										<div class="col-md-1 col-sm-1"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.macameratruoc_id.thongsocoban }}</b></div>
+									</div>
+											
+									<div class="row">
+										<div class="col-md-2 col-sm-2"></div>
+										<div class="col-md-3 col-sm-3 col-xs-12"><b>Điểm mạnh:</b></div>
+										<div class="col-md-1 col-sm-1"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.macameratruoc_id.diemmanh }}</b></div>
+									</div>
+	
+	
+									<div class="row">
+										<div class="col-md-2 col-sm-2"></div>
+										<div class="col-md-3 col-sm-3 col-xs-12"><b>Đặc điểm:</b></div>
+										<div class="col-md-1 col-sm-1"></div>
+										<div class="col-md-6 col-sm-6 col-xs-12"><b>{{ sanpham.ma_sp_id.macameratruoc_id.dacdiem }}</b></div>
+									</div>
+							</div>
+							
+						</div>
+					</div><!--/category-tab-->
+					
+					<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">Sản phẩm cùng loại</h2>
+						
+						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">	
+									{% for item in danhsachcungloai1 %}
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+														<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+														<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+														<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+														<p>{{ item.5|add:" - "| add:item.6 }}</p>
+														<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+								{% if danhsachcungloai2 %}
+								<div class="item">	
+									{% for item in danhsachcungloai2 %}
+									<div class="col-sm-4">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+													<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+													<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+													<p>{{ item.5|add:" - "| add:item.6 }}</p>
+													<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+								{% endif %}
+							</div>
+							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>			
+						</div>
+					</div><!--/recommended_items-->
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	{% include 'app/blocks/footer.html' %}
+	{% include 'app/blocks/js.html' %}
+</body>
+</html>

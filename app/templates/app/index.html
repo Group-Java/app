@@ -1,0 +1,227 @@
+{% load humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "app/blocks/head.html" %}
+</head><!--/head-->
+
+<body>
+		{% include 'app/blocks/header.html' %}
+	
+			{% include 'app/blocks/message_flash.html' %}
+
+			{% include 'app/blocks/slider.html' %}
+
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<div class="left-sidebar">
+					
+						{% include "app/blocks/dongsanpham.html" %}
+					</div>
+				</div>
+				
+				<div class="col-sm-9 padding-right">
+					<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">Sản phẩm bán</h2>
+						{% for item in sanphamban %}
+						<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">
+											<a href="/product_detail/{{ item.0 }}"><img src="/media/{{ item.3 }}" alt="" /></a>
+											<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+
+											<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+											<p>{{ item.5|add:" - "| add:item.6 }}</p>
+											<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										</div>
+										<!-- <div class="product-overlay">
+											<div class="overlay-content">
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+										</div> -->
+								</div>
+								<!-- <div class="choose">
+									<ul class="nav nav-pills nav-justified">
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
+										<li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+									</ul>
+								</div> -->
+							</div>
+						</div>
+						{% endfor %}
+					</div><!--features_items-->
+					
+					<div class="category-tab"><!--category-tab-->
+						<div class="col-sm-12">
+							<ul class="nav nav-tabs">
+								<li class="active"><a href="#iphone8" data-toggle="tab">IPhone 8</a></li>
+								<li><a href="#iphone7" data-toggle="tab">IPhone 7</a></li>
+								<li><a href="#iphone6" data-toggle="tab">IPhone 6</a></li>
+								<li><a href="#iphone5" data-toggle="tab">IPhone 5</a></li>
+								<!-- <li><a href="#poloshirt" data-toggle="tab">IPhone 8</a></li> -->
+							</ul>
+						</div>
+						<div class="tab-content">
+							<div class="tab-pane fade active in" id="iphone8" >
+								{% for item in iphone8 %}
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+												<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+												<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+												<p>{{ item.5|add:" - "| add:item.6 }}</p>
+												<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+								{% endfor %}
+							</div>
+							
+							<div class="tab-pane fade" id="iphone7" >
+									{% for item in iphone7 %}
+									<div class="col-sm-3">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+													<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+													<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+													<p>{{ item.5|add:" - "| add:item.6 }}</p>
+													<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+							</div>
+							
+							<div class="tab-pane fade" id="iphone6" >
+									{% for item in iphone6 %}
+									<div class="col-sm-3">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+													<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+													<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+													<p>{{ item.5|add:" - "| add:item.6 }}</p>
+													<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+							</div>
+							
+							<div class="tab-pane fade" id="iphone5" >
+									{% for item in iphone5 %}
+									<div class="col-sm-3">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+													<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+													<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+													<p>{{ item.5|add:" - "| add:item.6 }}</p>
+													<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+							</div>
+							
+							<!-- <div class="tab-pane fade" id="poloshirt" >
+								<div class="col-sm-3">
+									<div class="product-image-wrapper">
+										<div class="single-products">
+											<div class="productinfo text-center">
+												<img src="images/home/gallery2.jpg" alt="" />
+												<h2>$56</h2>
+												<p>Easy Polo Black Edition</p>
+												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</div> -->
+
+						</div>
+					</div><!--/category-tab-->
+					
+					<div class="recommended_items"><!--recommended_items-->
+						<h2 class="title text-center">Sản phẩm mới</h2>
+						
+						<div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								
+								<div class="item active">
+									{% for item in sanphammoi1 %}
+									<div class="col-sm-3">
+										<div class="product-image-wrapper">
+											<div class="single-products">
+												<div class="productinfo text-center">
+													<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+													<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+													<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+													<p>{{ item.5|add:" - "| add:item.6 }}</p>
+													<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												</div>
+												
+											</div>
+										</div>
+									</div>
+									{% endfor %}
+								</div>
+								{% if sanphammoi2 %}
+								<div class="item">	
+									{% for item in sanphammoi2 %}
+									<div class="col-sm-3">
+											<div class="product-image-wrapper">
+												<div class="single-products">
+													<div class="productinfo text-center">
+														<a href="/product_detail/{{ item.0 }}"><img src="/media/{{item.3}}" alt="" /></a>
+														<h2>{{ item.2| floatformat:"-3"|add:" VND"|intcomma }}</h2>
+														<a href="/product_detail/{{ item.0 }}"><p>{{ item.4 }}</p></a>
+														<p>{{ item.5|add:" - "| add:item.6 }}</p>
+														<a href="/add/{{ item.0 }}" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+													</div>
+												</div>
+											</div>
+										</div>
+									{% endfor %}
+								</div>
+								{% endif %}
+							</div>
+							 <a class="left recommended-item-control" href="#recommended-item-carousel" data-slide="prev">
+								<i class="fa fa-angle-left"></i>
+							  </a>
+							  <a class="right recommended-item-control" href="#recommended-item-carousel" data-slide="next">
+								<i class="fa fa-angle-right"></i>
+							  </a>			
+						</div>
+					</div><!--/recommended_items-->
+					
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	{% include "app/blocks/footer.html" %}
+
+	{% include "app/blocks/js.html" %}
+</body>
+</html>
